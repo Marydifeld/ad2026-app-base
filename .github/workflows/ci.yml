@@ -42,4 +42,4 @@ jobs:
           push: true
           tags: |
             ghcr.io/marydifeld/ad2026-app-base:latest
-            # ghcr.io//${{ github.repository }}:${{ env.SHORT_SHA }}
+            ghcr.io/marydifeld/ad2026-app-base:${{ env.SHORT_SHA }}

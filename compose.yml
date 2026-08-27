@@ -1,0 +1,23 @@
+services: 
+  db: 
+    build: ./db
+    restart: always 
+    environment: 
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+  web:
+    build: ./web
+    restart: always
+    env_file:
+      - ./web/.env
+    ports: 
+      - 8000:8000
+    depends_on:
+      - db
+
+  tunnel: 
+    image: cloudflare/cloudflared:latest
+    command: tunnel --url http://web:8000
+    depends_on:
+      - web 

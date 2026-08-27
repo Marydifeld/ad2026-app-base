@@ -41,5 +41,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/marydifeld/${{ github.repository }}:latest
+            ghcr.io/marydifeld/ad2026-app-base:latest
             # ghcr.io//${{ github.repository }}:${{ env.SHORT_SHA }}
